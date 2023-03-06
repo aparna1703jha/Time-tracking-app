@@ -55,20 +55,37 @@
     "url-loader": "^4.1.1"
   },
   "dependencies": {
+    "@date-io/date-fns": "^2.16.0",
+    "@date-io/jalaali": "^2.16.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
+    "@hookform/resolvers": "^2.9.11",
     "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "^5.0.0-alpha.120",
     "@mui/material": "^5.11.8",
+    "@mui/x-date-pickers": "^5.0.20",
+    "@mui/x-date-pickers-pro": "^5.0.20",
     "axios": "^1.0.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
+    "formik-yup": "^0.0.5",
     "jsonwebtoken": "^9.0.0",
+    "moment": "^2.29.4",
+    "moment-jalaali": "^0.9.6",
     "mongoose": "^6.9.0",
+    "rc-time-picker": "^3.7.3",
     "react": "18.2.0",
+    "react-date-picker": "^9.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.1",
     "react-router-dom": "^6.8.1",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "uuid": "^9.0.0",
+    "yup": "^1.0.0",
+    "zod": "^3.20.6"
   }
 }

@@ -1,25 +1,29 @@
 import { createBrowserRouter } from 'react-router-dom';
-import LoginScreen from '../screens/Login';
-import SignupScreen from '../screens/Signup';
 import DashboardScreen from '../screens/Dashboard';
 import TaskScreen from '../screens/Task';
+import NewLogin from '../screens/NewLogin';
+import NewSignup from '../screens/NewSignup';
+import NewDashboard from '../screens/NewDashboard';
+import NewTask from '../screens/NewTask';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LoginScreen />,
+    element: <NewLogin />,
   },
+
   {
     path: '/signup',
-    element: <SignupScreen />,
+    element: <NewSignup />,
   },
+
   {
     path: '/dashboard',
-    element: <DashboardScreen />,
+    element: <NewDashboard />,
   },
   {
     path: '/task',
-    element: <TaskScreen />,
+    element: <NewTask />,
   },
 ]);
 

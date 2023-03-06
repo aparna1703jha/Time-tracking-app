@@ -100,3 +100,194 @@ const LoginScreen: FC = () => {
 };
 
 export default memo(LoginScreen);
+
+
+
+// import {
+//   Box,
+//   Button,
+//   Grid,
+//   TextField,
+//   CssBaseline,
+//   Avatar,
+//   Typography,
+// } from '@mui/material';
+// import { Container } from '@mui/system';
+// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+// import React from 'react';
+// import { useFormik } from 'formik';
+// import * as Yup from 'yup';
+
+// const NewSignup = () => {
+//   const signUpSchema = Yup.object({
+//     first_name: Yup.string()
+//       .min(6)
+//       .max(16)
+//       .required('Please enter your first name'),
+//     last_name: Yup.string()
+//       .min(6)
+//       .max(16)
+//       .required('Please enter your last name'),
+//     email: Yup.string().email().required('Please enter your email'),
+//     password: Yup.string().min(6).required('Please enter your password'),
+   
+//   });
+//   const initialValues = {
+//     first_name: '',
+//     last_name: '',
+//     email: '',
+//     password: '',
+   
+//   };
+
+//   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+//     useFormik({
+//       initialValues,
+//       validationSchema: signUpSchema,
+//       onSubmit: (values, action) => {
+//         console.log(values);
+//         action.resetForm();
+//       },
+//     });
+
+//   return (
+//     <Box
+//       component="main"
+//       height="100%"
+//       // maxWidth="xs"
+//       sx={{
+//         backgroundImage: `url(${'https://wallpaperaccess.com/full/5651981.jpg'})`,
+//         opacity: 0.9,
+//         backgroundPosition: 'center',
+//         backgroundRepeat: 'no-repeat',
+//         backgroundSize: 'cover',
+//       }}
+//     >
+//       <CssBaseline />
+//       <Box
+//         component={Container}
+//         height="100vh"
+//         display="flex"
+//         justifyContent="center"
+//         alignItems="center"
+//       >
+//         <Box
+//           component={Container}
+//           display="flex"
+//           flexDirection="column"
+//           alignItems="center"
+//           maxWidth="xs"
+//           borderRadius={7}
+//           sx={{ backgroundColor: '#E6D8C9' }}
+//         >
+//           <Avatar sx={{ m: 1, bgcolor: 'primary.light' }}>
+//             <LockOutlinedIcon />
+//           </Avatar>
+//           <Typography component="h1" variant="h5">
+//             Sign up
+//           </Typography>
+//           <Box
+//             component="form"
+//             noValidate
+//             onSubmit={handleSubmit}
+//             sx={{ mt: 3 }}
+//           >
+//             <Grid container spacing={2}>
+//               <Grid item xs={12} sm={6}>
+//                 <TextField
+//                   autoComplete="given-name"
+//                   name="first_name"
+//                   required
+//                   variant="filled"
+//                   fullWidth
+//                   id="name"
+//                   label="First name"
+//                   autoFocus
+//                   value={values.first_name}
+//                   onChange={handleChange}
+//                   onBlur={handleBlur}
+//                 />
+//                 {errors.first_name && touched.first_name ? (
+//                   <p className="form-error">{errors.first_name}</p>
+//                 ) : null}
+//               </Grid>
+//               <Grid item xs={12} sm={6}>
+//                 <TextField
+//                   required
+//                   fullWidth
+//                   variant="filled"
+//                   id="last_name"
+//                   label="Last Name"
+//                   name="last_name"
+//                   autoComplete="family-name"
+//                   value={values.last_name}
+//                   onChange={handleChange}
+//                   onBlur={handleBlur}
+//                 />
+//                 {errors.last_name && touched.last_name ? (
+//                   <p className="form-error">{errors.last_name}</p>
+//                 ) : null}
+//               </Grid>
+//               <Grid item xs={12}>
+//                 <TextField
+//                   required
+//                   fullWidth
+//                   variant="filled"
+//                   type="email"
+//                   id="email"
+//                   label="Email Address"
+//                   name="email"
+//                   autoComplete="email"
+//                   value={values.email}
+//                   onChange={handleChange}
+//                   onBlur={handleBlur}
+//                 />
+//                 {errors.email && touched.email ? (
+//                   <p className="form-error">{errors.email}</p>
+//                 ) : null}
+//               </Grid>
+//               <Grid item xs={12}>
+//                 <TextField
+//                   required
+//                   fullWidth
+//                   variant="filled"
+//                   name="password"
+//                   label="Password"
+//                   type="password"
+//                   id="password"
+//                   autoComplete="new-password"
+//                   value={values.password}
+//                   onChange={handleChange}
+//                   onBlur={handleBlur}
+//                 />
+//                 {errors.password && touched.password ? (
+//                   <p className="form-error">{errors.password}</p>
+//                 ) : null}
+//               </Grid>
+           
+//             </Grid>
+//             <Button
+//               type="submit"
+//               fullWidth
+//               variant="contained"
+//               sx={{
+//                 mt: 3,
+//                 mb: 2,
+//                 bgcolor: 'primary.light',
+//                 color: 'whitesmoke',
+//                 '&:hover': {
+//                   backgroundColor: '#fff',
+//                   color: '#3c52b2',
+//                 },
+//               }}
+//             >
+//               Sign Up
+//             </Button>
+//           </Box>
+//         </Box>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default NewSignup;

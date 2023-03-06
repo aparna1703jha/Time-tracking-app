@@ -11,16 +11,19 @@ const Navbar: FC = () => {
       position="static"
       color="default"
       elevation={0}
-      sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+      sx={{
+        borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
+        bgcolor: '#9B594A',
+      }}
     >
       <Toolbar sx={{ flexWrap: 'wrap' }}>
-        <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" color="#D8C7B5" noWrap sx={{ flexGrow: 1 }}>
           Time Tracking App
         </Typography>
         <nav>
           <Link
             variant="button"
-            color="text.primary"
+            color="#D8C7B5"
             href="#"
             sx={{ my: 1, mx: 1.5 }}
           >
@@ -28,7 +31,7 @@ const Navbar: FC = () => {
           </Link>
           <Link
             variant="button"
-            color="text.primary"
+            color="#D8C7B5"
             href="#"
             sx={{ my: 1, mx: 1.5 }}
           >
@@ -36,14 +39,23 @@ const Navbar: FC = () => {
           </Link>
           <Link
             variant="button"
-            color="text.primary"
+            color="#D8C7B5"
             href="#"
             sx={{ my: 1, mx: 1.5 }}
           >
             Page 3
           </Link>
         </nav>
-        <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+        <Button
+          href="#"
+          variant="outlined"
+          sx={{
+            my: 1,
+            mx: 1.5,
+            backgroundColor: 'secondary.main',
+            color: 'secondary.dark',
+          }}
+        >
           Logout
         </Button>
       </Toolbar>

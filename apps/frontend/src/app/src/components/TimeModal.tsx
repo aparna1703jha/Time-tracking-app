@@ -6,20 +6,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import {
-  Box,
-  Divider,
-  Grid,
-  ListItemButton,
-  TableBody,
-  TextField,
-} from '@mui/material';
+import { Box, Grid, ListItemButton, TableBody, TextField } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+import EditIcon from '@mui/icons-material/Edit';
 import dayjs from 'dayjs';
+import { string } from 'yup';
 
 const TimeModal = () => {
   const [dateValue, setDateValue] = useState<dayjs.Dayjs | null>(dayjs());
@@ -28,6 +22,9 @@ const TimeModal = () => {
   const [timeErr, setTimeErr] = useState(false);
 
   const [time, setTime] = useState<any[]>([]);
+  console.log(time, 'check');
+  const [toggleSubmit, setToggleSubmit] = useState(true);
+  const [isEditData, setIsEditData] = useState('');
 
   const minDate = new Date(new Date().getFullYear(), new Date().getMonth() - 1);
   const maxDate = new Date(new Date().getFullYear(), new Date().getMonth(), 15);
@@ -49,10 +46,13 @@ const TimeModal = () => {
         ];
       });
       setTimeValue('');
+      setDateValue(dayjs());
+
       setTimeErr(false);
     } else {
       setTimeErr(true);
     }
+    setToggleSubmit(true);
   };
 
   const handleTime = (e: any) => {
@@ -77,12 +77,31 @@ const TimeModal = () => {
       return prevTime.filter((val) => val.id !== id);
     });
   };
+
+  const editData = (id: string) => {
+    const index = time.findIndex((elem) => {
+      return elem.id === id;
+    });
+    const newEditData = time.find((elem) => {
+      return elem.id === id;
+    });
+    console.log(newEditData);
+    setToggleSubmit(false);
+    setDateValue(newEditData.date);
+    setTimeValue(newEditData.time);
+    setTime((prevTime) => {
+      const newTime = [...prevTime];
+      newTime.splice(index, 1);
+      return newTime;
+    });
+  };
+
   return (
     <TableContainer component={Box}>
       <List>
         {time.map((val, index) => (
           <ListItem
-            key={index}
+            key={val.id}
             disablePadding
             sx={{
               flexDirection: 'column',
@@ -97,7 +116,7 @@ const TimeModal = () => {
                 InputProps={{ readOnly: true }}
                 fullWidth
                 variant="standard"
-                sx={{ mr: '12rem', border: 'none' }}
+                sx={{ mr: '8rem', border: 'none' }}
               />
               <TextField
                 value={val.time}
@@ -113,6 +132,16 @@ const TimeModal = () => {
                     sx={{ color: 'primary.light', mr: '1rem' }}
                     onClick={() => {
                       deleteData(val.id);
+                    }}
+                  />
+                </ListItemButton>
+              </Grid>
+              <Grid alignSelf={'center'}>
+                <ListItemButton>
+                  <EditIcon
+                    sx={{ color: 'primary.light', mr: '1rem' }}
+                    onClick={() => {
+                      editData(val.id);
                     }}
                   />
                 </ListItemButton>
@@ -157,10 +186,19 @@ const TimeModal = () => {
                 ''
               )}
             </TableCell>
-
-            <TableCell>
-              <AddIcon sx={{ color: 'primary.light' }} onClick={addTime} />
-            </TableCell>
+            {toggleSubmit ? (
+              <TableCell>
+                <AddIcon sx={{ color: 'primary.light' }} onClick={addTime} />
+              </TableCell>
+            ) : (
+              <TableCell>
+                {' '}
+                <EditIcon
+                  sx={{ color: 'primary.light', mr: '1rem' }}
+                  onClick={addTime}
+                />
+              </TableCell>
+            )}
           </TableRow>
         </TableBody>
       </Table>
